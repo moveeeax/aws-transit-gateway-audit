@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "regions": {
+    "eu-west-1": {
+      "transit_gateways": [
+        {
+          "TransitGatewayId": "tgw-0clean000000001",
+          "State": "available",
+          "Description": "clean hub",
+          "Options": {
+            "DefaultRouteTableAssociation": "enable",
+            "DefaultRouteTablePropagation": "enable"
+          }
+        }
+      ],
+      "route_tables": [
+        {
+          "TransitGatewayRouteTableId": "tgw-rtb-clean000001",
+          "TransitGatewayId": "tgw-0clean000000001",
+          "State": "available",
+          "DefaultAssociationRouteTable": true,
+          "DefaultPropagationRouteTable": true
+        }
+      ],
+      "attachments": [
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-core0001",
+          "TransitGatewayId": "tgw-0clean000000001",
+          "ResourceType": "vpc",
+          "ResourceId": "vpc-core000000001",
+          "State": "available",
+          "CreationTime": "2026-01-05T10:00:00Z"
+        },
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-app00001",
+          "TransitGatewayId": "tgw-0clean000000001",
+          "ResourceType": "vpc",
+          "ResourceId": "vpc-app0000000001",
+          "State": "available",
+          "CreationTime": "2026-01-05T10:10:00Z"
+        }
+      ],
+      "associations": {
+        "tgw-rtb-clean000001": [
+          {"TransitGatewayAttachmentId": "tgw-attach-core0001", "State": "associated"},
+          {"TransitGatewayAttachmentId": "tgw-attach-app00001", "State": "associated"}
+        ]
+      },
+      "propagations": {
+        "tgw-rtb-clean000001": [
+          {"TransitGatewayAttachmentId": "tgw-attach-core0001", "State": "enabled"},
+          {"TransitGatewayAttachmentId": "tgw-attach-app00001", "State": "enabled"}
+        ]
+      },
+      "routes": {
+        "tgw-rtb-clean000001": [
+          {
+            "DestinationCidrBlock": "10.50.0.0/16",
+            "State": "active",
+            "Type": "propagated",
+            "TransitGatewayAttachments": [
+              {"TransitGatewayAttachmentId": "tgw-attach-core0001", "ResourceType": "vpc"}
+            ]
+          },
+          {
+            "DestinationCidrBlock": "10.60.0.0/16",
+            "State": "active",
+            "Type": "propagated",
+            "TransitGatewayAttachments": [
+              {"TransitGatewayAttachmentId": "tgw-attach-app00001", "ResourceType": "vpc"}
+            ]
+          }
+        ]
+      },
+      "vpc_attachments": [
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-core0001",
+          "TransitGatewayId": "tgw-0clean000000001",
+          "VpcId": "vpc-core000000001",
+          "State": "available",
+          "SubnetIds": ["subnet-core0a00001", "subnet-core0b00001"]
+        },
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-app00001",
+          "TransitGatewayId": "tgw-0clean000000001",
+          "VpcId": "vpc-app0000000001",
+          "State": "available",
+          "SubnetIds": ["subnet-app0a000001", "subnet-app0b000001"]
+        }
+      ],
+      "subnets": [
+        {"SubnetId": "subnet-core0a00001", "VpcId": "vpc-core000000001", "AvailabilityZone": "eu-west-1a", "CidrBlock": "10.50.0.0/20"},
+        {"SubnetId": "subnet-core0b00001", "VpcId": "vpc-core000000001", "AvailabilityZone": "eu-west-1b", "CidrBlock": "10.50.16.0/20"},
+        {"SubnetId": "subnet-app0a000001", "VpcId": "vpc-app0000000001", "AvailabilityZone": "eu-west-1a", "CidrBlock": "10.60.0.0/20"},
+        {"SubnetId": "subnet-app0b000001", "VpcId": "vpc-app0000000001", "AvailabilityZone": "eu-west-1b", "CidrBlock": "10.60.16.0/20"}
+      ],
+      "vpcs": [
+        {
+          "VpcId": "vpc-core000000001",
+          "CidrBlock": "10.50.0.0/16",
+          "CidrBlockAssociationSet": [{"CidrBlock": "10.50.0.0/16"}]
+        },
+        {
+          "VpcId": "vpc-app0000000001",
+          "CidrBlock": "10.60.0.0/16",
+          "CidrBlockAssociationSet": [{"CidrBlock": "10.60.0.0/16"}]
+        }
+      ]
+    }
+  }
+}

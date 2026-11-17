@@ -1,0 +1,327 @@
+{
+  "version": 1,
+  "regions": {
+    "eu-central-1": {
+      "transit_gateways": [
+        {
+          "TransitGatewayId": "tgw-0hub0000000000001",
+          "State": "available",
+          "Description": "core hub",
+          "Options": {
+            "DefaultRouteTableAssociation": "disable",
+            "DefaultRouteTablePropagation": "disable",
+            "AssociationDefaultRouteTableId": "tgw-rtb-shared00000001",
+            "PropagationDefaultRouteTableId": "tgw-rtb-shared00000001"
+          }
+        }
+      ],
+      "route_tables": [
+        {
+          "TransitGatewayRouteTableId": "tgw-rtb-shared00000001",
+          "TransitGatewayId": "tgw-0hub0000000000001",
+          "State": "available",
+          "DefaultAssociationRouteTable": true,
+          "DefaultPropagationRouteTable": true
+        },
+        {
+          "TransitGatewayRouteTableId": "tgw-rtb-isolated000001",
+          "TransitGatewayId": "tgw-0hub0000000000001",
+          "State": "available",
+          "DefaultAssociationRouteTable": false,
+          "DefaultPropagationRouteTable": false
+        },
+        {
+          "TransitGatewayRouteTableId": "tgw-rtb-dead0000000001",
+          "TransitGatewayId": "tgw-0hub0000000000001",
+          "State": "available",
+          "DefaultAssociationRouteTable": false,
+          "DefaultPropagationRouteTable": false
+        }
+      ],
+      "attachments": [
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-prod000001",
+          "TransitGatewayId": "tgw-0hub0000000000001",
+          "ResourceType": "vpc",
+          "ResourceId": "vpc-prod000000000001",
+          "ResourceOwnerId": "111122223333",
+          "State": "available",
+          "CreationTime": "2026-02-10T09:00:00Z"
+        },
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-stage00001",
+          "TransitGatewayId": "tgw-0hub0000000000001",
+          "ResourceType": "vpc",
+          "ResourceId": "vpc-stage00000000001",
+          "ResourceOwnerId": "111122223333",
+          "State": "available",
+          "CreationTime": "2026-03-04T11:20:00Z"
+        },
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-dmz000001",
+          "TransitGatewayId": "tgw-0hub0000000000001",
+          "ResourceType": "vpc",
+          "ResourceId": "vpc-dmz0000000000001",
+          "ResourceOwnerId": "111122223333",
+          "State": "available",
+          "CreationTime": "2026-03-19T14:05:00Z"
+        },
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-legacy0001",
+          "TransitGatewayId": "tgw-0hub0000000000001",
+          "ResourceType": "vpn",
+          "ResourceId": "vpn-0legacy000000001",
+          "ResourceOwnerId": "111122223333",
+          "State": "available",
+          "CreationTime": "2025-11-02T08:40:00Z"
+        },
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-lab000001",
+          "TransitGatewayId": "tgw-0hub0000000000001",
+          "ResourceType": "vpc",
+          "ResourceId": "vpc-lab0000000000001",
+          "ResourceOwnerId": "111122223333",
+          "State": "available",
+          "CreationTime": "2026-08-21T16:30:00Z"
+        },
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-oops00001",
+          "TransitGatewayId": "tgw-0hub0000000000001",
+          "ResourceType": "vpc",
+          "ResourceId": "vpc-oops00000000001",
+          "ResourceOwnerId": "111122223333",
+          "State": "failed",
+          "CreationTime": "2026-09-30T07:15:00Z"
+        },
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-partner001",
+          "TransitGatewayId": "tgw-0hub0000000000001",
+          "ResourceType": "peering",
+          "ResourceId": "tgw-0partner00000001",
+          "ResourceOwnerId": "444455556666",
+          "State": "pendingAcceptance",
+          "CreationTime": "2026-09-01T10:00:00Z"
+        }
+      ],
+      "associations": {
+        "tgw-rtb-shared00000001": [
+          {
+            "TransitGatewayAttachmentId": "tgw-attach-prod000001",
+            "ResourceId": "vpc-prod000000000001",
+            "ResourceType": "vpc",
+            "State": "associated"
+          },
+          {
+            "TransitGatewayAttachmentId": "tgw-attach-legacy0001",
+            "ResourceId": "vpn-0legacy000000001",
+            "ResourceType": "vpn",
+            "State": "associated"
+          },
+          {
+            "TransitGatewayAttachmentId": "tgw-attach-lab000001",
+            "ResourceId": "vpc-lab0000000000001",
+            "ResourceType": "vpc",
+            "State": "associated"
+          },
+          {
+            "TransitGatewayAttachmentId": "tgw-attach-oops00001",
+            "ResourceId": "vpc-oops00000000001",
+            "ResourceType": "vpc",
+            "State": "associated"
+          }
+        ],
+        "tgw-rtb-isolated000001": [
+          {
+            "TransitGatewayAttachmentId": "tgw-attach-dmz000001",
+            "ResourceId": "vpc-dmz0000000000001",
+            "ResourceType": "vpc",
+            "State": "associated"
+          }
+        ]
+      },
+      "propagations": {
+        "tgw-rtb-shared00000001": [
+          {
+            "TransitGatewayAttachmentId": "tgw-attach-prod000001",
+            "ResourceId": "vpc-prod000000000001",
+            "ResourceType": "vpc",
+            "State": "enabled"
+          },
+          {
+            "TransitGatewayAttachmentId": "tgw-attach-stage00001",
+            "ResourceId": "vpc-stage00000000001",
+            "ResourceType": "vpc",
+            "State": "enabled"
+          },
+          {
+            "TransitGatewayAttachmentId": "tgw-attach-lab000001",
+            "ResourceId": "vpc-lab0000000000001",
+            "ResourceType": "vpc",
+            "State": "enabled"
+          }
+        ],
+        "tgw-rtb-isolated000001": [
+          {
+            "TransitGatewayAttachmentId": "tgw-attach-dmz000001",
+            "ResourceId": "vpc-dmz0000000000001",
+            "ResourceType": "vpc",
+            "State": "enabled"
+          }
+        ]
+      },
+      "routes": {
+        "tgw-rtb-shared00000001": [
+          {
+            "DestinationCidrBlock": "10.10.0.0/16",
+            "State": "active",
+            "Type": "propagated",
+            "TransitGatewayAttachments": [
+              {
+                "TransitGatewayAttachmentId": "tgw-attach-prod000001",
+                "ResourceId": "vpc-prod000000000001",
+                "ResourceType": "vpc"
+              }
+            ]
+          },
+          {
+            "DestinationCidrBlock": "10.20.0.0/16",
+            "State": "active",
+            "Type": "propagated",
+            "TransitGatewayAttachments": [
+              {
+                "TransitGatewayAttachmentId": "tgw-attach-stage00001",
+                "ResourceId": "vpc-stage00000000001",
+                "ResourceType": "vpc"
+              }
+            ]
+          },
+          {
+            "DestinationCidrBlock": "10.20.16.0/20",
+            "State": "active",
+            "Type": "propagated",
+            "TransitGatewayAttachments": [
+              {
+                "TransitGatewayAttachmentId": "tgw-attach-lab000001",
+                "ResourceId": "vpc-lab0000000000001",
+                "ResourceType": "vpc"
+              }
+            ]
+          },
+          {
+            "DestinationCidrBlock": "192.168.100.0/24",
+            "State": "blackhole",
+            "Type": "static",
+            "TransitGatewayAttachments": []
+          },
+          {
+            "DestinationCidrBlock": "172.16.9.0/24",
+            "State": "active",
+            "Type": "static",
+            "TransitGatewayAttachments": [
+              {
+                "TransitGatewayAttachmentId": "tgw-attach-gone00001",
+                "ResourceId": "vpc-gone00000000001",
+                "ResourceType": "vpc"
+              }
+            ]
+          }
+        ],
+        "tgw-rtb-isolated000001": [
+          {
+            "DestinationCidrBlock": "10.30.0.0/16",
+            "State": "active",
+            "Type": "propagated",
+            "TransitGatewayAttachments": [
+              {
+                "TransitGatewayAttachmentId": "tgw-attach-dmz000001",
+                "ResourceId": "vpc-dmz0000000000001",
+                "ResourceType": "vpc"
+              }
+            ]
+          }
+        ],
+        "tgw-rtb-dead0000000001": []
+      },
+      "vpc_attachments": [
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-prod000001",
+          "TransitGatewayId": "tgw-0hub0000000000001",
+          "VpcId": "vpc-prod000000000001",
+          "State": "available",
+          "SubnetIds": ["subnet-prod0a000001", "subnet-prod0b000001"]
+        },
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-stage00001",
+          "TransitGatewayId": "tgw-0hub0000000000001",
+          "VpcId": "vpc-stage00000000001",
+          "State": "available",
+          "SubnetIds": ["subnet-stage0a00001", "subnet-stage0b00001"]
+        },
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-dmz000001",
+          "TransitGatewayId": "tgw-0hub0000000000001",
+          "VpcId": "vpc-dmz0000000000001",
+          "State": "available",
+          "SubnetIds": ["subnet-dmz0a0000001", "subnet-dmz0b0000001"]
+        },
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-lab000001",
+          "TransitGatewayId": "tgw-0hub0000000000001",
+          "VpcId": "vpc-lab0000000000001",
+          "State": "available",
+          "SubnetIds": ["subnet-lab0a0000001"]
+        },
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-oops00001",
+          "TransitGatewayId": "tgw-0hub0000000000001",
+          "VpcId": "vpc-oops00000000001",
+          "State": "failed",
+          "SubnetIds": ["subnet-oops0a000001"]
+        }
+      ],
+      "subnets": [
+        {"SubnetId": "subnet-prod0a000001", "VpcId": "vpc-prod000000000001", "AvailabilityZone": "eu-central-1a", "CidrBlock": "10.10.0.0/20"},
+        {"SubnetId": "subnet-prod0b000001", "VpcId": "vpc-prod000000000001", "AvailabilityZone": "eu-central-1b", "CidrBlock": "10.10.16.0/20"},
+        {"SubnetId": "subnet-prod0c000001", "VpcId": "vpc-prod000000000001", "AvailabilityZone": "eu-central-1c", "CidrBlock": "10.10.32.0/20"},
+        {"SubnetId": "subnet-stage0a00001", "VpcId": "vpc-stage00000000001", "AvailabilityZone": "eu-central-1a", "CidrBlock": "10.20.0.0/20"},
+        {"SubnetId": "subnet-stage0b00001", "VpcId": "vpc-stage00000000001", "AvailabilityZone": "eu-central-1b", "CidrBlock": "10.20.32.0/20"},
+        {"SubnetId": "subnet-dmz0a0000001", "VpcId": "vpc-dmz0000000000001", "AvailabilityZone": "eu-central-1a", "CidrBlock": "10.30.0.0/20"},
+        {"SubnetId": "subnet-dmz0b0000001", "VpcId": "vpc-dmz0000000000001", "AvailabilityZone": "eu-central-1b", "CidrBlock": "10.30.16.0/20"},
+        {"SubnetId": "subnet-lab0a0000001", "VpcId": "vpc-lab0000000000001", "AvailabilityZone": "eu-central-1a", "CidrBlock": "10.20.16.0/24"},
+        {"SubnetId": "subnet-oops0a000001", "VpcId": "vpc-oops00000000001", "AvailabilityZone": "eu-central-1a", "CidrBlock": "10.40.0.0/20"}
+      ],
+      "vpcs": [
+        {
+          "VpcId": "vpc-prod000000000001",
+          "CidrBlock": "10.10.0.0/16",
+          "CidrBlockAssociationSet": [{"CidrBlock": "10.10.0.0/16"}],
+          "Tags": [{"Key": "Name", "Value": "prod"}]
+        },
+        {
+          "VpcId": "vpc-stage00000000001",
+          "CidrBlock": "10.20.0.0/16",
+          "CidrBlockAssociationSet": [{"CidrBlock": "10.20.0.0/16"}],
+          "Tags": [{"Key": "Name", "Value": "stage"}]
+        },
+        {
+          "VpcId": "vpc-dmz0000000000001",
+          "CidrBlock": "10.30.0.0/16",
+          "CidrBlockAssociationSet": [{"CidrBlock": "10.30.0.0/16"}],
+          "Tags": [{"Key": "Name", "Value": "dmz"}]
+        },
+        {
+          "VpcId": "vpc-lab0000000000001",
+          "CidrBlock": "10.20.16.0/20",
+          "CidrBlockAssociationSet": [{"CidrBlock": "10.20.16.0/20"}],
+          "Tags": [{"Key": "Name", "Value": "lab"}]
+        },
+        {
+          "VpcId": "vpc-oops00000000001",
+          "CidrBlock": "10.40.0.0/16",
+          "CidrBlockAssociationSet": [{"CidrBlock": "10.40.0.0/16"}],
+          "Tags": [{"Key": "Name", "Value": "oops"}]
+        }
+      ]
+    }
+  }
+}

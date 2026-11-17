@@ -1,0 +1,19 @@
+# Thresholds and cost constants for aws-transit-gateway-audit.
+# Pass with: aws-transit-gateway-audit --rules examples/rules.yaml --region eu-central-1
+
+# What one attachment costs per month in your region. The waste rule prints it.
+attachment_monthly_cost: 36.50
+
+# How long an attachment may sit in pendingAcceptance before it is a finding.
+max_pending_age_days: 7
+
+# Rules to silence entirely.
+ignore_rules:
+  - tgw-attachment-no-propagation
+
+# Attachments to exclude from every rule (a known-good appliance, a lab spoke).
+ignore_attachments: []
+
+# Re-grade a rule for your environment.
+severity_overrides:
+  tgw-route-blackhole: critical
